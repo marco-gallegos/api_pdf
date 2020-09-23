@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Evidencias</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Marco Gallegos Notebook</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Caracteristicas de un SOR</h1>
+            <h2 class="subheading">Caracteristicas y planificacion de instalacion</h2>
+            <span class="meta">Posted by
+              <a href="#">Marco Gallegos</a>
+              el 19 de Agosto del 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            El sistema operativo de red es un tipo de software de los muchísimos que podemos encontrar. Este, en particular, se encarga de posibilitar el funcionamiento de una red de ordenadores. Sería el equivalente del sistema operativo de nuestro ordenador pero, como decimos, para una red.
+          </p>
+          <p>
+            De este modo, se posibilita el acceso y el uso a los diferentes recursos que cada uno de los puntos de la red incluyen, considerando como tales tanto sus elementos de software como de hardware (los propios equipos o elementos periféricos), los propios usuarios, las bases de datos e incluso la seguridad de la información.
+          </p>
+          <p>
+            Lo que hace es, a fin de cuentas, permitir que se dé una comunicación del sistema informático, es decir, de dos o más equipos, de manera física o inalámbrica.
+          </p>
+        </div>
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Las características comunes a todos ellos y las que, por tanto, lo definen con recurso informático son:
+          </p>
+        </div>
+        
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Mapa Semantico de funciones principales</h2>
+          <img src="./img/3/semanticoSOR.png" alt="" class="img-fluid">
+        </div>
+        
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Planificacion instalacion CentOS</h2>
+        </div>
+
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>CentOS</h2>
+          <p>
+            CentOS (Community ENTerprise Operating System) surge como rama de Red Hat Enterprise Linux (RHEL), compilado por desarrolladores a partir del código fuente de Red Hat.
+          </p>
+
+          <h4>Esquema de particiones</h4>
+          <p>
+            A menos de que tenga una buena razón para hacer lo contrario, le recomendamos que cree las siguientes particiones para los sistemas x86, AMD64, e Intel 64 systems: 
+          </p>
+
+          <p>
+            <ul>
+              <li>
+                Una partición swap
+              </li>
+              <li>
+                Una partición /boot
+              </li>
+              <li>
+                Una partición /
+              </li>
+              <li>
+                Una partición home 
+              </li>
+            </ul>
+          </p>
+
+          <p>
+            Una partición swap (de al menos 256 MB) — las particiones swap sirven para soportar la memoria virtual. En otras palabras, los datos se escriben en una partición swap cuando no hay suficiente memoria RAM para almacenar la información que su sistema está procesando. 
+          </p>
+
+          <p>
+            Una partición /boot (250 MB)
+            La partición montada en /boot/ contiene el kernel del sistema operativo (el cual permite a su sistema arrancar Red Hat Enterprise Linux) junto con archivos utilizados durante el proceso de arranque. Para la mayoría de los usuarios, una partición de arranque de 250 MB es suficiente.
+          </p>
+
+          <p>
+            Una partición root (3.0 GB - 5.0 GB)
+            Aquí es donde se localiza "/" (el directorio raíz). En esta configuración, todos los archivos (excepto aquellos almacenados en /boot) están en la partición raíz.
+            3.0 GB le permite instalar una instalación mínima, mientras que una partición raíz de 5.0 GB le permite realizar una instalación completa, seleccionando todos los grupos de paquetes.
+          </p>
+        </div>
+        
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Estructura de Directorios en CentOS</h2>
+
+          <p>
+            Al igual que en las demás distribuciones Linux,  posee un sistema de estructura jerarquico, a continuación mostraremos los directorios principales de CentOS y su destino.
+          </p>
+
+          <ul>
+            <li>
+              Directorio /bin: Es el directorio donde se alojan los ficheros ejecutables, su nombre refiere a: bin = binaries
+            </li>
+            <li>
+              Directorio /boot: Directorio destinado a ficheros y otros directorios del tipo arranque (boot).
+            </li>
+            <li>
+              Directorio /dev: Contiene ficheros de dispositivos.
+            </li>
+            <li>
+              Directorio /etc: Podemos encontrar ficheros y directorios correspondientes a configuraciones especificas para el sistema. 
+            </li>
+            <li>
+              Directorio /home: EL directorio utilizado a nivel de usuarios, en el se alojan: documentos, directorios, etc.
+            </li>
+            <li>
+              Directorio /lib: Contiene librerías compartidas necesarias para los binarios de /bin/, /sbin/ y el núcleo del sistema.
+            </li>
+            <li>
+              Directorio /lost+found: Aquí se alojan los archivos perdidos pertenecientes a cada partición.
+            </li>
+            <li>
+              Directorio /media: En el se montan los dispositivos multimedia como las unidades ópticas etc. 
+            </li>
+            <li>
+              Directorio /mnt: Sistemas de ficheros montados temporalmente.
+            </li>
+            <li>
+              Directorio/proc: Aquí se encuentra la información sobre diferentes partes del sistema, cpu, discos, tiempo uptime, irqs, memoria, etc.
+            </li>
+            <li>
+              Directorio/root: Directorio perteneciente al superusuario del sistema ( root )
+            </li>
+            <li>
+              Directorio/sbin: Contiene archivos ejecutables que por lo general son comandos usados para la administración del sistema.
+            </li>
+            <li>
+              Directorio /sys: directorio con parámetros de configuración que se estén ejecutando. Datos del kernel, bus, dispositivos y demás.
+            </li>
+            <li>
+              Directorio /tmp: Aquí se encuentran los directorios y archivos temporales. Estos archivos y directorios se eliminan con el apagado del sistema.
+            </li>
+            <li>
+              Directorio /usr: Un directorio compartido entre todos los usuarios del sistema. En el se suelen guardar aplicaciones, librerías, etc.
+            </li>
+            <li>
+              Directorio /var: En el se almacenan datos que están en cambio continuo como por ejemplo ficheros de log del sistema, correo, etc.
+            </li>
+
+          </ul>
+        </div>
+
+        
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Conclusion</h2>
+          <p>
+            Centos es un sistema que actualmente es ampliamente utilizado y que contiene la mayor cantidad de funcionalidad y metodologias de seguridad necesarias para cualquier tipo de servidor. actualmente es un sistema que podemos encontrar en servicios de hosting compartido de forma casi inequivoca al ser un sistema confiable, barato y seguro.
+          </p>
+        </div>
+        
+      </div>
+      
+      <div class="row">
+        <h4>Referencias</h4>
+        <p class="col-12" >
+          <a href="https://internetpasoapaso.com/sistema-operativo-de-red/">Sitio InternetPasoaPaso</a>
+        </p>
+        <p class="col-12" >
+          <a href="https://access.redhat.com/documentation/es-es/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86">Sitio RedHat</a>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/marco-gallegos">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Marco Gallegos 2019</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
