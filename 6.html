@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Evidencias</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Marco Gallegos Notebook</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Eliminación de un controlador de dominio</h1>
+            <h2 class="subheading">que es y como se elimina un controlador de dominio y objetos que administra un dominio.</h2>
+            <span class="meta">Posted by
+              <a href="#">Marco Gallegos</a>
+              el 20 de Octubre del 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Dominio</h2>
+          <p>
+            En un Dominio se almacena de forma centralizada infor-mación administrativa (cuentas de usuarios, impresoras, directorios, etc.) y de seguridad, facilitando así la labor del administrador. Windows Server utiliza el concepto de Directorio Activo (AD, Active Directory) como almacén de datos (objetos) para implementar este tipo de configuración.
+          </p>
+          <p>
+            El DA es un servicio de red que guarda en una base de datos toda la información sobre los recursos de la red y permite el acceso de los usuarios a dichos recursos y a determi-nadas aplicaciones.
+          </p>
+          <p>
+            Cuando instalemos un DA en uno o varios equipos Win-dows Server de nuestra red, convertimos a dichos equipos en servidores o, más correc-tamente, en los denominados controladores de dominio (Domain Controllers).
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Instalacion de controlador de dominio</h2>
+
+          <h4>Paso 1</h4>
+          <h6>Configurar nombre servidor Windows</h6>
+          <p>
+            Ahora vamos a modificar el nombre del servidor. El primer paso es modificar el nombre del equipo ya que este será el identificador en la red y si está con el nombre predeterminado será complicado para muchos usuarios ubicarlo de forma fácil.
+          </p>
+          <p>
+            Podemos usar las siguientes alternativas para modificar el nombre:
+            <ul>
+              <li>
+                Desde el administrador del servidor: Allí nos dirigimos a la opción Servidor local y allí damos clic sobre el nombre del servidor
+              </li>
+              <li>
+                Usando la opción Sistema: Para ello damos clic derecho sobre el botón de Inicio, seleccionamos la opción Sistema y allí elegimos: Configuración avanzada del sistema > Nombre de equipo
+              </li>
+            </ul>
+          </p>
+          <p>
+            Ahora debemos ver el cambio de nombre por el que asignamos en este ventana:
+          </p>
+          <img src="./img/6/paso1.jpg" alt="" class="img-fluid">
+
+          <h4>Paso 2</h4>
+          <h6>Cambiar la dirección IP del servidor</h6>
+          <p>
+            Es necesario que el equipo cuente con una dirección IP estática para la estabilidad de la red ya que una dirección IP dinámica puede afectar la conectividad entre los equipos y el dominio.
+            <ul>
+              <li>
+                Ir a la ruta Panel de control / Redes e Internet / Centro de redes y recursos compartidos / Cambiar configuración del adaptador.
+              </li>
+              <li>
+                Dando clic derecho en el ícono de red ubicado en la barra de tareas y allí seleccionar la opción Centro de redes y recursos compartidos, posteriormente seleccionar la opción Cambiar configuración del adaptador.
+              </li>
+            </ul>
+          </p>
+
+          <p>
+            Una vez configurados el nombre y la dirección IP del servidor procedemos a instalar los roles respectivos. Instalando el rol de directorio activo. El primer paso es instalar el rol de Servicios de dominio de Active Directory y para ello realizaremos el siguiente proceso.
+          </p>
+
+          <p>
+            Desde el Administrador el servidor seleccionamos la opción Agregar roles y características donde veremos el siguiente asistente, que nos indica que debemos comprobar que se han completado las siguientes tareas previas:
+            <ul>
+              <li>
+                La cuenta administrador tiene una contraseña segura.
+              </li>
+              <li>
+                Las direcciones IP como las direcciones de red estáticas, están configuradas.
+              </li>
+              <li>
+                Las actualizaciones de Windows Update están instaladas.
+              </li>
+            </ul>
+          </p>
+          <img src="./img/6/paso2.1.jpg" alt="" class="img-fluid" >
+          
+          <p>
+            Pulsamos Siguiente para elegir el tipo de instalación la cual será la que está seleccionada por defecto: “Instalación basada en características o en roles”.
+          </p>
+          <img src="./img/6/paso2.2.jpg" alt="" class="img-fluid" >
+          
+          <p>
+            Pulsamos Siguiente y en la siguiente ventana seleccionamos el servidor donde instalaremos el rol.
+          </p>
+          <img src="./img/6/paso2.3.jpg" alt="" class="img-fluid" >
+
+          <p>
+            Pulsamos de nuevo Siguiente y en la siguiente ventana seleccionamos la casilla “Servicios de dominio de Active Directory”. Lo normal es también seleccionar servidor DNS y DHCP. Pero eso ya irá en gusto y necesidades de cada empresa.
+          </p>
+          <img src="./img/6/paso2.4.jpg" alt="" class="img-fluid" >
+          
+          <p>
+            Pulsamos Siguiente y en la ventana desplegada no seleccionaremos ninguna característica por lo cual pulsamos de nuevo Siguiente y veremos información asociada al rol a instalar.
+          </p>
+          <img src="./img/6/paso2.5.jpg" alt="" class="img-fluid" >
+
+          <p>
+            Pulsamos Siguiente y veremos un resumen con el rol que será instalado en el servidor.
+          </p>
+          <img src="./img/6/paso2.6.jpg" alt="" class="img-fluid" >
+
+          <p>
+            Pulsamos el botón Instalar para iniciar el proceso de instalación del rol de Servicios de dominio de Active Directory. Posteriormente veremos que la instalación ha sido finalizada de manera correcta.
+          </p>
+          <img src="./img/6/paso2.7.jpg" alt="" class="img-fluid" >
+          
+          <h4>Paso 3</h4>
+          <h6>Promover el servidor a controlador de dominio en Windows Server 2016</h6>
+          
+          <p>
+            El siguiente paso consiste en promover el equipo para que cumpla las funciones de controlador de dominio, recordemos que el comando dcpromo ya está obsoleto por parte de Microsoft.
+          </p>
+          
+          <p>
+            Cuando hemos instalado el rol anterior podemos ver una advertencia en la parte superior del administrador del servidor:
+          </p>
+          <img src="./img/6/paso3.1.jpg" alt="" class="img-fluid" >
+          
+          <p>
+            Al desplegarla debemos seleccionar la opción Promover este servidor a controlador de domino y se desplegará el siguiente asistente donde lo primero que debemos definir es un nuevo bosque con el nombre de nuestro dominio, en este caso solvetic.com
+          </p>
+          <img src="./img/6/paso3.2.jpg" alt="" class="img-fluid" >
+          
+          <p>
+            Pulsamos Siguiente y en la próxima ventana debemos definir los siguientes parámetros:
+            
+            Nivel funcional del bosque.
+            
+            Nivel funcional del dominio.
+            Definir las funciones del dominio (Ser DNS, RODC, etc).
+            
+            Contraseña DSRM (Esta aplica cuando debemos iniciar el directorio activo en modo de restauración.
+          </p>
+          <img src="./img/6/paso3.3.jpg" alt="" class="img-fluid" >
+          
+          <p>
+            Pulsamos Siguiente y en la ventana desplegada sobre la delegación del DNS podemos omitirla pulsando de nuevo Siguiente y a continuación veremos el nombre de NetBIOS del equipo.
+          </p>
+          <img src="./img/6/paso3.4.jpg" alt="" class="img-fluid" >
+
+          <p>
+            De nuevo pulsamos Siguiente y veremos las rutas donde se almacenarán los archivos de registro, de sistema, etc, estos valores no es recomendable modificarlos.
+          </p>
+          <img src="./img/6/paso3.5.jpg" alt="" class="img-fluid" >
+          
+          <p>
+            Pulsamos Siguiente y veremos un resumen con las características y funcionalidades a instalar.
+          </p>
+          <img src="./img/6/paso3.6.jpg" alt="" class="img-fluid" >
+
+          <p>
+            Al pulsar Siguiente el sistema comprobará que todos los parámetros estén correctos para iniciar el proceso de promoción a controlador de dominio.
+          </p>
+          <img src="./img/6/paso3.7.jpg" alt="" class="img-fluid" >
+
+          <p>
+            Pulsamos Instalar para iniciar el proceso de promoción a controlador de dominio en Windows Server 2016. Una vez promovido el equipo debemos reiniciar el sistema para que todos los cambios surtan efecto.
+          </p>
+          <img src="./img/6/paso3.8.jpg" alt="" class="img-fluid" >
+
+          <p>
+            Validación de que el servidor ha sido promovido a controlador de dominio. Una vez el equipo se reinicie podemos validar que todo ha sido correcto desde el inicio de sesión ya que veremos el nombre del dominio en la ventana de login:
+          </p>
+          <img src="./img/6/paso3.9.jpg" alt="" class="img-fluid" >
+
+          <p>
+            Ahora en el administrador del servidor podemos ver que el equipo gestiona el dominio.
+          </p>
+          <img src="./img/6/paso3.10.jpg" alt="" class="img-fluid" >
+          
+        </div>
+      </div>
+
+      <div class="row">
+        <h4>Eliminacion de controlador de dominio</h4>
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          
+        </div>
+      </div>
+      
+      <div class="row">
+        <h4>Eliminacion de controlador de dominio</h4>
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            De forma similar a como realizábamos la promoción lleva-remos a cabo la despromoción.
+          </p>
+          <p>
+            Iniciamos sesión como Administrador del equipo y desde Inicio > Ejecutar ejecutamos el comando dcpromo. Se nos muestra una pantalla de inicio del asistente de confi-guración de DA.
+          </p>
+
+          <p>
+            Esta indica que este controlador es un servidor de catá-logo global, es decir, que es el controlador principal del dominio y que se utiliza para que los usuarios se validen a él. Este mensaje indica la peligrosidad del proceso
+          </p>
+
+          <p>
+            Como en nuestro caso el controlador es único, en un bosque único, y no existen otros bosques, podremos realizar la operación. Pero si nuestro dominio contase con algún otro bosque, con controladores adicionales de  dominio  o  con  subdominios,  no  podríamos  elimi-narlo. En este caso tendríamos que ir eliminando los controladores de dominio jerárquicamente de menor a mayor jerarquía.
+          </p>
+
+          <p>
+            pulsamos Aceptar y aparece una pantalla
+          </p>
+          <img src="./img/6/eliminacion1.1.png" alt="" class="img-fluid">
+
+          <p>
+            En esta pantalla se nos indica que marquemos la casilla de verificación, siempre y cuando sea el último contro-lador del dominio. En nuestro caso, como es el único, evidentemente  es  el  último,  pero  recordemos  que  si  hubiera otros subdominios o controladores adicionales, no marcaríamos esta casilla para desinstalarlos
+          </p>
+
+          <p>
+            Marcada la casilla, pulsamos Siguiente y aparece una pantalla dándonos información sobre las particiones en las que se ha replicado la base de datos de DA. Pul-samos Siguiente y sale una nueva pantalla en la que indicaremos si queremos eliminar o no toda la informa-ción que las particiones de la base de datos contienen. Es conveniente eliminarlas, siempre y cuando, como es nuestro caso, el objetivo sea eliminar completamente los servicios de directorio del equipo Windows Server
+          </p>
+
+          <p>
+            Una vez marcada la casilla Eliminar todas las particio-nes, pulsamos en Siguiente. Puede ocurrir que a conti-nuación se muestre otra pantalla en la que se nos pre-gunte si queremos eliminar la configuración del servicio de DNS, que en su momento se configuró para poder utilizar los servicios de directorio
+          </p>
+
+          <p>
+            Marcamos la casilla de verificación que indica esta circuns-tancia y pulsamos Siguiente. Si se nos solicita, que es lo normal, introducimos las contraseñas del usuario Adminis-trador del equipo que utilizamos para la creación de DA
+          </p>
+
+          <p>
+            Pulsamos Siguiente en las pantallas posteriores y el pro-ceso de despromoción comienza. Pasados unos minu-tos, cuando finalice, tendremos que reiniciar el equipo o marcar la casilla Reiniciar al completar de la última pantalla que aparece
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <p>
+          https://www.mheducation.es/bcv/guide/capitulo/8448183940.pdf
+          https://www.solvetic.com/tutoriales/article/3187-como-crear-controlador-de-dominio-windows-server-2016/
+        </p>
+        <h4>Referencias</h4>
+        <p class="col-12" >
+          Dominios y servicios de directorio (Dominio (Controlador de dominio (Enâ¦. (s. f.). Coggle. Recuperado 22 de septiembre de 2020, de https://coggle.it/diagram/WKcSIX5jXwABfxkK/t/dominios-y-servicios-de-directorio
+        </p>
+
+        <p class="col-12">
+          Linux - Arranque y parada del sistema - ASO. (s. f.). adminso. Recuperado 22 de octubre de 2020, de http://www.adminso.es/index.php/Linux_-_Arranque_y_parada_del_sistema
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/marco-gallegos">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Marco Gallegos 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
