@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Evidencias</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Marco Gallegos Notebook</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>8 (3, 3.1) Usuarios y grupos en red
+            <h2 class="subheading">Implementación de grupos integrados en active directory</h2>
+            <span class="meta">Posted by
+              <a href="#">Marco Gallegos</a>
+              el 25 de Octubre del 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Conceptos básicos</h2>
+          <p>
+            Uno de los elementos fundamentales en la administración de una red, es el control de los usuarios, grupos y equipos. Por ello, debemos aprender cómo crearlos, modificarlos, organizarlos y, si llega el caso, eliminarlos. Además, deberemos asignar privilegios para cada uno de ellos, de modo que podamos establecer en qué medida y bajo qué condiciones podrán beneficiarse de los recursos de la red. Este objetivo lo cubriremos, en parte durante el presente capítulo, pero seguiremos completándolo en el siguiente.
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Cuenta de usuario</h2>
+          <p>
+            Como ya comentábamos en el capítulo anterior, una de las primeras ideas que deben quedar claras cuando hablamos de cuentas de usuario es que no siempre representan a personas concretas, sino que también pueden ser utilizadas como mecanismos de acceso para determinados servicios o aplicaciones de la máquina local o, incluso, de un equipo remoto.
+          </p>
+          <p>
+            En definitiva, una cuenta de usuario es un objeto que posibilita el acceso a los recursos del dominio de dos modos diferentes:
+            <ul>
+              <li>
+                Permite autenticar la identidad de un usuario, porque sólo podrán iniciar una sesión aquellos usuarios que dispongan de una cuenta en el sistema asociada a una determinada contraseña.
+              </li>
+              <li>
+                Permite autorizar, o denegar, el acceso a los recursos del dominio, porque, una vez que el usuario haya iniciado su sesión sólo tendrá acceso a los recursos para los que haya recibido los permisos correspondientes.
+              </li>
+            </ul>
+          </p>
+          <p>
+            Cada cuenta de usuario dispone de un identificador de seguridad (SID, Security IDentifier) que es único en el dominio.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Cuentas Integradas</h2>
+          <p>
+            Cuando se crea el dominio, se crean también dos nuevas cuentas: Administrador e Invitado. Posteriormente, cuando es necesario, se crea también la cuenta Asistente de ayuda. Estas son las denominadas cuentas integradas y disponen de una serie de derechos y permisos predefinidos:
+          </p>
+          <ul>
+            <li>
+              Administrador: Tiene control total sobre el dominio y no se podrá eliminar ni retirar del grupo Administradores (aunque sí podemos cambiarle el nombre o deshabilitarla).
+            </li>
+            <li>
+              Invitado: Está deshabilitada de forma predeterminada y, aunque no se recomienda, puede habilitarse, por ejemplo, para permitir el acceso a los usuarios que aún no tienen cuenta en el sistema o que la tienen deshabilitada. De forma predeterminada no requiere contraseña, aunque esta característica, como cualquier otra, puede ser modificada por el administrador.
+            </li>
+            <li>
+              Asistente de ayuda: se utiliza para iniciar sesiones de Asistencia remota y tiene acceso limitado al equipo. Se crea automáticamente cuando se solicita una sesión de asistencia remota y se elimina cuando dejan de existir solicitudes de asistencia pendientes de satisfacer.
+            </li>
+          </ul>
+          <p>
+            Por último, debemos tener en cuenta que, aunque la cuenta Administrador esté deshabilitada, podrá seguir usándose para acceder al controlador de dominio en modo seguro.
+          </p>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Cuenta de equipo</h2>
+          <p>
+            Como ocurría con las cuentas de usuario, una cuenta de equipo sirve para autenticar a los diferentes equipos que se conectan al dominio, permitiendo o denegando su acceso a los diferentes recursos del dominio.
+          </p>
+          <p>
+            Del mismo modo que con las cuentas de usuario, las cuentas de equipo deben ser únicas en el dominio. Aunque una cuenta de equipo se puede crear de forma manual (como veremos más adelante), también se puede crear en el momento en el que el equipo se une al dominio.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Cuenta de grupo</h2>
+          <p>
+            Un grupo es un conjunto de objetos del dominio que pueden administrarse como un todo. Puede estar formado por cuentas de usuario, cuentas de equipo, contactos y otros grupos.
+          </p>
+          <p>
+            Podemos utilizar los grupos para facilitar algunas tareas, como:
+          </p>
+          <lu>
+            <li>
+              Simplificar la administración: Podemos asignar permisos al grupo y éstos afectarán a todos sus miembros.
+            </li>
+            <li>
+              Delegar la administración: Podemos utilizar la directiva de grupo para asignar derechos de usuario una sola vez y, más tarde, agregar los usuarios a los que queramos delegar esos derechos.
+            </li>
+            <li>
+              Crear listas de distribución de correo electrónico: Sólo se utilizan con los grupos de distribución que comentaremos más abajo.
+            </li>
+          </lu>
+          <p>
+            El Directorio Activo proporciona un conjunto de grupos predefinidos que pueden utilizarse tanto para facilitar el control de acceso a los recursos como para delegar determinados roles administrativos. Por ejemplo, el grupo Operadores de copia de seguridad permite a sus miembros realizar copias de seguridad de todos los controladores de dominio, en el dominio al que pertenecen.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Ámbito de los grupos</h2>
+          <p>
+            El ámbito de un grupo establece su alcance, es decir, en qué partes de la red puede utilizarse, y el tipo de cuentas que pueden formar parte de él. En ese sentido, pueden pertenecer a una de las siguientes categorías:
+          </p>
+          <ul>
+            <li>
+              Ámbito local: Entre sus miembros pueden encontrarse uno o varios de los siguientes tipos de objetos:
+              <ul>
+                <li>Cuentas de usuario o equipo.</li>
+                <li>Otros grupos de ámbito local.</li>
+                <li>Grupos de ámbito global.</li>
+                <li>Grupos de ámbito universal.</li>
+              </ul>
+              Las cuentas o grupos contenidos tendrán necesidades de acceso similares dentro del propio dominio. Por ejemplo, los que necesiten acceder a una determinada impresora.
+            </li>
+            <li>
+              Ámbito global: Sólo pueden incluir otros grupos y cuentas que pertenezcan al dominio en el que esté definido el propio grupo. Los miembros de este tipo de grupos pueden tener permisos sobre los recursos de cualquier dominio dentro del bosque. Sin embargo, estos grupos no se replican fuera de su propio dominio, de modo que, la asignación de derechos y permisos que alberguen, no serán válidas en otros dominios del bosque.
+            </li>
+            <li>
+              Ámbito universal: Entre sus miembros pueden encontrarse cuentas o grupos de cualquier dominio del bosque, a los que se les pueden asignar permisos sobre los recursos de cualquier dominio del bosque.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Tipos de grupos</h2>
+          <p>
+            Existen dos tipos de grupos en Active Directory:
+          </p>
+          <ul>
+            <li>
+              Grupos de distribución: Se utilizan en combinación con programas como Microsoft Exchange Server, para crear listas de distribución de correo electrónico. Estos grupos no disponen de características de seguridad, por lo que no pueden aparecer en las listas de control de acceso discrecional (DACL, Discretionary Access Control Lists).
+            </li>
+            <li>
+              Grupos de seguridad: Permiten asignar permisos a las cuentas de usuario, de equipo y grupos sobre los recursos compartidos. Con los grupos de seguridad podemos:
+              <ul>
+                <li>
+                  Asignar derechos de usuario a los grupos de seguridad del Directorio Activo. De esta forma, podemos establecer qué acciones pueden llevar a cabo sus miembros dentro del dominio (o del bosque). Como veremos después, durante la instalación del Directorio Activo, se crean grupos de seguridad predeterminados que facilitan al administrador la delegación de ciertos aspectos de la administración (como, por ejemplo, las copias de seguridad) en otros usuarios del sistema.
+                </li>
+                <li>
+                  Asignar permisos para recursos a los grupos de seguridad. Lo que nos permite definir quién accede a cada recurso y bajo qué condiciones (control total, sólo lectura, etc.) También se establecen permisos de forma predeterminada sobre diferentes objetos del dominio para ofrecer distintos niveles de acceso.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Grupos Integrados</h2>
+          <p>
+            Como hemos mencionado antes, durante la instalación del Directorio Activo se crean una serie de grupos que podremos utilizar para simplificar la asignación de derechos y permisos a otras cuentas o grupos. Como veremos más abajo, los grupos se administran con el complemento Usuarios y equipos de Active Directory. Cuando ejecutemos esta herramienta, encontraremos los grupos predeterminados en dos contenedores:
+          </p>
+          <p>
+            Puedes ver un pequeño resumen de todos ellos en la siguiente tabla:
+          </p>
+          <p>
+            <img src="./img/8/1.png" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2></h2>
+          <p>
+            
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <h4>Conclusion</h4>
+        <p class="col-12" >
+          En este documento dimos un buen repaso sobre las caracteristicas de los usuarios y grupos en active directory aunque tomo un enfoque muy centrado en los usuarios y roles por defecto podemos entender que los nuevos usuarios pueden heredar cualquiera de esos permisos y comportamientos.
+        </p>
+      </div>
+
+
+      <div class="row">
+        <h4>Referencias</h4>
+        <p class="col-12">
+          A. (2017, 3 febrero). Gestión de Usuarios y Grupos en Windows server. Descom.es. https://www.descom.es/blog/cloud/gestion-usuarios-grupos-windows-server.html
+        </p>
+        <p class="col-12">
+          3. Usuarios y grupos en redes Windows con AD archivos. (s. f.). Profesor Web. Recuperado 6 de noviembre de 2020, de https://profesorweb.es/category/sistemas-operativos-en-red/3-usuarios-y-grupos-en-redes-windows-con-active-directory/
+        </p>
+        <p class="col-12" >
+          Ruiz, P. (2020, 23 enero). Capítulo 8: Usuarios, grupos y equipos en Windows Server. SomeBooks.es. http://somebooks.es/capitulo-4-usuarios-grupos-y-equipos-en-windows-server-2012-r2/
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/marco-gallegos">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Marco Gallegos 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
