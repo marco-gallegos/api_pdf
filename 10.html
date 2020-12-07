@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Evidencias</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Marco Gallegos Notebook</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>10 (4 4.1 4.2) Administración de redes y sus utilidades </h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">Posted by
+              <a href="#">Marco Gallegos</a>
+              el 16 de noviembre del 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+
+      <div class="row">
+        <h1>Introduccion</h1>
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Este trabajo parte desde la misma base de explicacion de que son los usuarios y roles en windows server active directory la cual es util para las actividades 9 y 10 por tanto esta explicacion con un ejemplo muy ilustrativo sera el mismo para ambos documentos pero la actividad 10 agregara el tema de agregar equipos a un dominio lo cual nos terminara de detallar el tema sesiones que no es explicado en la descripcion/ejemplo de usuario y grupoas de active directory.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Como introducción vamos a explicar y diferenciar que son los permisos para los recursos compartidos y los permisos NTFS.
+          </p>
+          <p>
+            En un servidor de archivos, el acceso a una carpeta puede estar determinado por dos conjuntos de entradas de permisos: los permisos de recurso compartido definidos en una carpeta y los permisos NTFS definidos en la carpeta (que también se puede definir en los archivos). Los permisos de recurso compartido suelen utilizarse para administrar equipos con sistemas de archivos FAT32 u otros equipos que no utilizan el sistema de archivos NTFS.
+          </p>
+          <p>
+            Los permisos de recurso compartido y los permisos NTFS son independientes en el sentido de que ninguno modifica al otro. Los permisos de acceso final en una carpeta compartida se determinan teniendo en cuenta las entradas de permiso de recurso compartido y de permiso NTFS y se aplicarán siempre los permisos más restrictivos.
+          </p>
+          <p>
+            Los permisos de las carpetas o recursos compartidos que el sistema nos deja configurar son:
+            <ul>
+              <li>
+                Control total: el usuario o grupo tomara propiedad del recurso y puede realizar cualquier tarea.
+              </li>
+              <li>
+                Cambiar: crear, eliminar y modificar archivos y carpetas.
+              </li>
+              <li>
+                Lectura: permite leer y ejecutar.
+              </li>
+            </ul>
+          </p>
+          <p>
+            Los permisos estándar o predeterminados NTFS que se pueden asignar a una carpeta son:
+            <ul>
+              <li>
+                Control total: para leer, cambiar, crear y ejecutar bien sean programas o carpetas.
+              </li>
+              <li>
+                Lectura y ejecución: para ver el contenido y ejecutar programas de una carpeta.
+              </li>
+              <li>
+                Modificar: para poder cambiar los ficheros y las carpetas, pero sin crear y eliminar ficheros ni carpetas nuevas.
+              </li>
+              <li>
+                Lectura: para poder ver y abrir el contenido.
+              </li>
+              <li>
+                Escritura: para poder crear y cambiar los ficheros y carpetas existentes.
+              </li>
+              <li>
+                Mostrar el contenido de la carpeta.
+              </li>
+              <li>
+                Además de los permisos NTFS estándar, podemos personalizar mejor las tareas que los usuarios o grupos de usuarios pueden realizar sobre un recurso compartido aplicando los permisos especiales NTFS.
+              </li>
+            </ul>
+          </p>
+          <p>
+            Para empezar vamos a ver cómo vamos a distribuir los recursos compartidos en nuestro servidor de ficheros, tendremos una unidad de disco duro independiente para este fin, así separaremos los archivos de sistema de los datos, crearemos tres recursos compartidos:
+            <ul>
+              <li>
+                Publico: con acceso de lectura, escritura, ejecución y modificación para todos los usuario del sistema.
+              </li>
+              <li>
+                Grupos: en este recurso vamos a crear las carpetas departamentales con acceso de lectura, escritura, ejecución y modificación para su departamento correspondiente y acceso denegado para los demás usuarios del sistema.
+              </li>
+              <li>
+                Usuarios: en este recurso vamos a crear las carpetas personales de los usuarios con acceso de lectura, escritura, ejecución y modificación para cada usuario según corresponda, acceso denegado para todos los demás usuarios.
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2></h2>
+          <p>
+            Empezaremos creando la carpeta Publico y le vamos a asignar los siguientes permisos de recurso compartido:
+          </p>
+          <p>
+            <img src="./img/10/1.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Una vez que hemos compartido la carpeta y le hemos asignado los permisos de recurso compartido, vamos a aplicar los permisos NTFS, para ello nos vamos a la pestaña Seguridad > Opciones Avanzadas:
+          </p>
+          <p>
+            <img src="./img/10/2.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Para el grupo Administradores, antes le hemos indicado que no herede los permisos del contenedor padre, es decir, que no herede los permisos de la unidad D:
+          </p>
+          <p>
+            <img src="./img/10/3.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/4.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Para el resto de usuarios:
+          </p>
+          <p>
+            <img src="./img/10/5.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/6.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Una vez asignados todos los permisos marcamos el check seleccionado en la captura de pantalla, para que los directorios anidados dentro de éste hereden la configuración de los permisos:
+          </p>
+          <p>
+            <img src="./img/10/7.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Ahora vamos a crear la carpeta Grupos y le vamos a asignar los siguientes permisos de recurso compartido:
+          </p>
+          <p>
+            <img src="./img/10/8.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Una vez que hemos compartido la carpeta y le hemos asignado los permisos de recurso compartido, vamos a aplicar los permisos NTFS, para ello nos vamos a la pestaña Seguridad > Opciones Avanzadas
+          </p>
+          <p>
+            <img src="./img/10/9.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Para el grupo Administradores, antes le hemos indicado que no herede los permisos del contenedor padre, es decir, que no herede los permisos de la unidad D:
+          </p>
+          <p>
+            <img src="./img/10/10.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/11.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Para el resto de usuarios:
+          </p>
+          <p>
+            <img src="./img/10/12.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/13.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/14.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Una vez que nos hemos creado el recurso compartido Grupos con sus permisos, vamos a crear dentro de éste, carpetas para los distintos departamentos de nuestra empresa y le asignaremos los permisos que le correspondan a cada departamento, la estructura nos quedaría de la siguiente manera:
+          </p>
+          <p>
+            <img src="./img/10/15.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Ahora sólo voy a mostrar cómo se configuran los permisos para un departamento, ya que para los demás se hará de la misma manera, por ejemplo, para el departamento de Administración, antes vamos a hacer un inciso para explicar que la técnica que vamos a usar para asignar los permisos departamentales será AGDLP, que significa esto, pues que en primer lugar vamos a crear las cuentas de los usuarios (A, Accounts), en segundo lugar crearemos los grupos de Seguridad Global (G, Global), en tercer lugar crearemos los grupos de Dominio Local (DL, Domain Local) y por último asignaremos los permisos(P, Permissions)
+          </p>
+          <p>
+            Ahora vamos a crear los grupos de Dominio Local y en ellos vamos a anidar los grupos de Seguridad Global, para ello nos abrimos la consola de Usuarios y equipos de Active Directory en nuestro controlador de dominio, y nos creamos una Unidad Organizativa llamada GruposDL, donde vamos a crear todos estos grupos de DL, los cuáles usaremos para asignar los permisos a las carpetas departamentales:
+          </p>
+          <p>
+            <img src="./img/10/16.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            Mostraremos la configuración para el departamento de Administración, ya que para los demás será la misma.
+          </p>
+          <p>
+            Nos creamos el primer grupo para permisos de Control total, llamado DL_AdministracionCala_FC.
+          </p>
+          <p>
+            En la pestaña “General” introducimos los datos correspondientes al grupo:
+          </p>
+          <p>
+            <img src="./img/10/17.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            En la pestaña “Miembros” introducimos los usuarios o grupos que queremos que pertenezcan a este grupo, en este caso no tenemos ningún miembro:
+          </p>
+          <p>
+            <img src="./img/10/18.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            En la pestaña “Administrado por” podemos indicar el usuario que queremos que administre este grupo, quitándole carga administrativa al Administrador del sistema, esto ya depende de los roles de nuestra organización, en este caso los únicos usuarios que pueden administrar el grupo son los Administradores:
+          </p>
+          <p>
+            <img src="./img/10/19.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Nos creamos el segundo grupo para permisos de lectura, llamado DL_AdministracionCala_Read.
+          </p>
+          <p>
+            En la pestaña “General” introducimos los datos correspondientes al grupo:
+          </p>
+          <p>
+            <img src="./img/10/20.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            En la pestaña “Miembros” introducimos los usuarios o grupos que queremos que pertenezcan a este grupo, en este caso no pertenece a ninguno:
+          </p>
+          <p>
+            <img src="./img/10/21.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            En la pestaña “Miembro de” introducimos si este grupo pertenece a otro grupo, en este caso no pertenece a ninguno:
+          </p>
+          <p>
+            <img src="./img/10/22.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            En la pestaña “Administrado por” podemos indicar el usuario que queremos que administre este grupo, quitándole carga administrativa al Administrador del sistema, esto ya depende de los roles de nuestra organización, en este caso los únicos usuarios que pueden administrar el grupo son los Administradores:
+          </p>
+          <p>
+            <img src="./img/10/23.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Nos creamos el tercer grupo para permisos de escritura, llamado DL_AdministracionCala_Write.
+          </p>
+          <p>
+            En la pestaña “General” introducimos los datos correspondientes al grupo:
+          </p>
+          <p>
+            <img src="./img/10/24.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            En la pestaña “Miembros” introducimos los usuarios o grupos que queremos que pertenezcan a este grupo, en este caso pertenecen al grupo de DL, el grupo de Seguridad Global “GAdministracionCala” que contiene a su vez todos los usuarios del departamento de Administración y el grupo de Seguridad Global “GDireccion” que contiene todos los usuarios del departamento de dirección:
+          </p>
+          <p>
+            <img src="./img/10/25.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            En la pestaña “Miembro de” introducimos si este grupo pertenece a otro grupo, en este caso no pertenece a ninguno:
+          </p>
+          <p>
+            <img src="./img/10/26.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            En la pestaña “Administrado por” podemos indicar el usuario que queremos que administre este grupo, quitándole carga administrativa al Administrador del sistema, esto ya depende de los roles de nuestra organización, en este caso los únicos usuarios que pueden administrar el grupo son los Administradores:
+          </p>
+          <p>
+            <img src="./img/10/27.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para crear los demás grupos de Dominio Local y asignar los permisos adecuados a cada departamento seguiremos la misma política que con el grupo Administración.
+          </p>
+          <p>
+            Una vez creados los grupos de Dominio Local aplicaremos los permisos a las carpetas departamentales, procederemos a aplicarlos sobre la carpeta “Administracion” ya que para los demás directorios departamentales será exactamente igual:
+          </p>
+          <p>
+            <img src="./img/10/28.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            En las propiedades de la carpeta Administración accedemos a la pestaña Seguridad > Opciones Avanzadas:política que con el grupo Administración.
+          </p>
+          <p>
+            <img src="./img/10/29.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Le indicamos que no herede los permisos de la carpeta principal “Grupos”:
+          </p>
+          <p>
+            <img src="./img/10/30.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para los permisos de control total asignamos:
+          </p>
+          <p>
+            <img src="./img/10/31.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/32.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para los permisos de lectura asignamos:
+          </p>
+          <p>
+            <img src="./img/10/33.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/34.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/35.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para los permisos de escritura asignamos:
+          </p>
+          <p>
+            <img src="./img/10/36.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/37.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para el grupo administradores asignamos Control Total:
+          </p>
+          <p>
+            <img src="./img/10/38.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Una vez asignados todos los permisos marcamos el check seleccionado en la captura de pantalla, para que los directorios anidados dentro de éste hereden la configuración de los permisos:
+          </p>
+          <p>
+            <img src="./img/10/39.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Los permisos del departamento de Contabilidad quedaría:
+          </p>
+          <p>
+            <img src="./img/10/40.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            Los permisos del departamento de Dirección quedaría:
+          </p>
+          <p>
+            <img src="./img/10/41.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            Los permisos del departamento de Ingeniería quedaría:
+          </p>
+          <p>
+            <img src="./img/10/42.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            Los permisos del departamento de Publicidad quedarían:
+          </p>
+          <p>
+            <img src="./img/10/43.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            Los permisos del departamento TIC quedarían:
+          </p>
+          <p>
+            <img src="./img/10/44.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            Los permisos del departamento de Ventas quedarían:
+          </p>
+          <p>
+            <img src="./img/10/45.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Ahora vamos a crear la carpeta Usuarios y le vamos a asignar los siguientes permisos de recurso compartido:
+          </p>
+          <p>
+            <img src="./img/10/46.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Una vez que hemos compartido la carpeta y le hemos asignado los permisos de recurso compartido, vamos a aplicar los permisos NTFS, para ello nos vamos a la pestaña Seguridad > Opciones Avanzadas:
+          </p>
+          <p>
+            <img src="./img/10/47.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para el grupo Administradores, antes le hemos indicado que no herede los permisos del contenedor padre, es decir, que no herede los permisos de la unidad D:
+          </p>
+          <p>
+            <img src="./img/10/48.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/49.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            Para el resto de usuarios:
+          </p>
+          <p>
+            <img src="./img/10/50.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/51.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/52.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Una vez que nos hemos creado el recurso compartido Usuarios con sus permisos, vamos a crear dentro de éste, carpetas para los distintos usuarios de nuestra empresa y le asignaremos los permisos que le correspondan a cada uno de ellos, éstas carpetas anidadas dentro del directorio Usuarios serán las carpetas personales de cada usuario, a las que sólo ellos tendrán acceso, la estructura nos quedaría de la siguiente manera:
+          </p>
+          <p>
+            <img src="./img/10/53.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Ahora sólo voy a mostrar cómo se configuran los permisos para un usuario, ya que para los demás se hará de la misma manera, por ejemplo para el usuario “Jesús”.
+          </p>
+          <p>
+            En las propiedades de la carpeta Jesus accedemos a la pestaña Seguridad > Opciones Avanzadas:
+          </p>
+          <p>
+            <img src="./img/10/54.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Le indicamos que no herede los permisos de la carpeta principal “Usuarios”:
+          </p>
+          <p>
+            <img src="./img/10/55.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para el usuario Jesús, le asignamos los siguientes permisos:
+          </p>
+          <p>
+            <img src="./img/10/56.webp" alt="" class="img-fluid">
+          </p>
+          <p>
+            <img src="./img/10/57.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para el grupo Administradores Control Total:
+          </p>
+          <p>
+            <img src="./img/10/58.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para asignar los permisos a los demás usuarios del sistema será exactamente igual.
+          </p>
+          <p>
+            Ahora para mapear estos tres recursos compartidos (Publico, Grupos y Usuarios) como unidades de red, para los usuarios del Active Directory cada vez que inicien sesión en un equipo del dominio, crearemos el siguiente script (un .bat) y lo ubicaremos en la carpeta compartida SYSVOL, exactamente en la ubicación C:\Windows\SYSVOL\sysvol\ragasys.net\scripts:
+          </p>
+          <p>
+            <img src="./img/10/59.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Para que este script funcione tendremos que editar las propiedades de los usuarios del dominio, yo tengo como costumbre antes de crear todos los usuarios del dominio, crearme una plantilla de usuario por cada departamento y utilizar esta plantilla para ir creando los usuarios, mostraré la configuración de la plantilla creada para el departamento de Administración, ya que para los demás será exactamente igual:
+          </p>
+          <p>
+            <img src="./img/10/60.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Como podemos ver cada vez que un usuario inicia sesión en un equipo del dominio tiene los recursos compartidos como unidades de red:
+          </p>
+          <p>
+            <img src="./img/10/61.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Con esto ya tendríamos configurado nuestro servidor de archivos, automáticamente se asignan los roles:
+          </p>
+          <p>
+            <img src="./img/10/62.webp" alt="" class="img-fluid">
+          </p>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <h4></h4>
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          
+        </div>
+      </div>
+      
+      <div class="row">
+        <h4>Conclusion</h4>
+        <p class="col-12" >
+          
+        </p>
+      </div>
+
+
+      <div class="row">
+        <h4>Referencias</h4>
+        <p class="col-12" >
+          Dominios y servicios de directorio (Dominio (Controlador de dominio (Enâ¦. (s. f.). Coggle. Recuperado 22 de septiembre de 2020, de https://coggle.it/diagram/WKcSIX5jXwABfxkK/t/dominios-y-servicios-de-directorio
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/marco-gallegos">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Marco Gallegos 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
