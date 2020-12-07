@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Evidencias</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Marco Gallegos Notebook</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>11 (4.3 4.4) Inicialización del sistema operativo de red</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">Posted by
+              <a href="#">Marco Gallegos</a>
+              el 25 de Noviembre del 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <h2>Inicializacion del sistema</h2>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            <ul>
+              <li>
+                Inicialmente, las instrucciones se introducían a mano desde un panel.
+              </li>
+              <li>
+                Los equipos más grandes tenían las instrucciones en una ROM, las cuales se copiaban a la memoria RAM.
+              </li>
+              <li>
+                Los equipos basados en microprocesadores tienen las instrucciones en una memoria junto a la BIOS. La ventaja de esto es que no hay que copiarlas a la RAM, el inconveniente es que dichas instrucciones ocupan memoria.
+              </li>
+            </ul>
+          </p>
+          <p>
+            A partir de aquí, el proceso de arranque difiere, no sólo contemplan la BIOS como su propia ROM, sino también dispositivos externos.
+          </p>
+          <p>
+            El arranque de un sistema operativo suele ser un proceso muy común hasta cierto punto, en el cual difieren en función del tipo de sistema. 
+          </p>
+          <p>
+            <ol>
+              <li>
+                Se inicia el procesador y se prepara para ejecutar instrucciones, las condiciones iniciales son fijas. 
+              </li>
+              <li>
+                Se ejecutan las primeras instrucciones. 
+              </li>
+              <li>
+                Se inicia lo principal (comprobación de memoria, pantalla, teclado, reloj…). 
+              </li>
+              <li>
+                Se inician los dispositivos adicionales con ROM propia. Se miran ciertas posiciones de memoria, y si no están vacías, la ROM principal salta ahí para iniciar el dispositivo (disco duro, disquete…). 
+              </li>
+              <li>
+                Se determina de dónde se cargará el SO. Para esto, la BIOS carga un pequeño programa que es el que inicia el SO. 
+                <p>
+                  En caso de que éste se inicie desde el disco duro, la BIOS consultará la posición 0 del disco, en la que se encuentra la tabla de particiones, donde se indica dónde está el programa de carga del SO, el cual se iniciará y continuará con el proceso de arranque. 
+                </p>
+              </li>
+              <li>
+                Se carga la parte principal del sistema operativo. 
+              </li>
+              <li>
+                Se inicia el sistema operativo.
+                <ul>
+                  <li>
+                    Se inician los elementos fundamentales del sistema operativo.
+                  </li>
+                  <li>
+                    Se inician los elementos fundamentales de lectura/escritura (drivers).
+                  </li>
+                  <li>
+                    Se comprueba el sistema de archivos.
+                  </li>
+                  <li>
+                    Se completan las pruebas y se carga el software adicional.
+                  </li>
+                  <li>
+                    Se arrancan los procesos necesarios del SO para que realice sus inicializaciones particulares.
+                  </li>
+                  <li>
+                    En ciertos casos, se inicia un archivo de órdenes que arranca los programas de servicios.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p>
+                  A partir de este punto, se realiza una nueva división, en función de si el SO es interactivo sin identificación de usuario (MS-DOS, por ejemplo), si requiere identificación, si es por lotes sencillos o si es por lotes superior. 
+                </p>
+                <ol type="A">
+                  <li>
+                    Se lanza el intérprete de órdenes y la interfaz gráfica. 
+                  </li>
+                  <li>
+                    Se lanza un proceso de log-in por cada terminal, el cual se mantiene en espera hasta que se identifique correctamente, punto en el cual, se lanzará el intérprete y la UI (interfaz de usuario). 
+                  </li>
+                  <li>
+                    Se pone en marcha la cola de trabajos. 
+                  </li>
+                  <li>
+                    Se inicia sesión en la consola del operador y éste montará los dispositivos, fijará los criterios de funcionamiento… 
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <h2>Fallos de inicio y Herramientas de recuperacion</h2>
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            MDOP (Microsoft Desktop Optimization Pack) es un conjuto de herramientas para administracion y reparacion de sistemas windows, DarT es un subconjunto expecializado en recuperacion de sistema.
+          </p>
+          <p>
+            No importa lo bien que gestiona un entorno de TI es que las máquinas que no arranca es un hecho de la vida. Mientras que los administradores de TI utilizan una variedad de métodos para reparar estas máquinas, algunas comparar al conjunto de herramientas de diagnóstico y recuperación (DART). Ahora, en la séptima versión principal, DART consta de 14 herramientas diseñadas para hacer frente a los problemas más difíciles con una máquina que no arranca.
+          </p>
+          <p>
+            <ol>
+              <li>
+                Editor del Registro: un editor de registro capaz de modificar un sistema operativo sin conexión
+              </li>
+              <li>
+                Explorer: la interfaz de explorador familiar que es incluso capaz de asignar unidades de red. Muy práctico para cargar los registros, archivos de choque, o copias de seguridad de datos
+              </li>
+              <li>
+                Locksmith: una herramienta de restablecimiento de la contraseña de usuario local
+              </li>
+              <li>
+                Solution Wizard: una herramienta automatizada diseñada para ayudar a usted (o más específicamente, un usuario final) elegir la herramienta de la reparación correcta
+              </li>
+              <li>
+                Crash Analyzer: un depurador de Windows sin conexión y capaz de identificar los conductores problemáticos
+              </li>
+              <li>
+                TCP / IP Config: una herramienta utilizada para cambiar la configuración IP DaRT
+              </li>
+              <li>
+                Restauración de archivos: esta herramienta ofrece la restauración de archivos de archivos borrados accidentalmente incluso en unidades cifradas BitLocker
+              </li>
+              <li>
+                Hotfix Uninstaller: cuando una revisión realiza una máquina que no arranca, esta herramienta puede quitar la revisión
+              </li>
+              <li>
+                Disco Commander: una herramienta útil para reparar los volúmenes, los registros de arranque maestro, o particiones
+              </li>
+              <li>
+                SFC Scan: el asistente de reparación de archivos del sistema puede reparar archivos de sistemas que se impide que Windows se cargue
+              </li>
+              <li>
+                Disk Wipe: capaz de limpiar un disco o volumen con una sola pasada o cuatro sobreescritura pase
+              </li>
+              <li>
+                Buscar: una sencilla herramienta de búsqueda de archivos es útil antes reimaging un ordenador
+              </li>
+              <li>
+                Administración de equipos: la MMC todo incluido desde Windows – ahora en un formato de Windows PE
+              </li>
+              <li>
+                Standalone System Sweeper: un removedor de software malicioso sin conexión capaz de eliminación y cuarentena
+              </li>
+            </ol>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <h4>FALLAS DE CARGA DEL SISTEMA OPERATIVO:</h4>
+        <div class="col-lg-8 col-md-10 mx-auto" >
+          <p>
+            Se presenta a causa de muchos factores
+            <ul>
+              <li>
+                Se presenta a causa de muchos factores mala instalacion del sistema
+              </li>
+              <li>
+                error de los sectores en el disco duro.
+              </li>
+              <li>
+                problemas de virus.
+              </li>
+              <li>
+                exeso de programas residentes.
+              </li>
+              <li>
+                dispositivos incompatibles.
+              </li>
+              <li>
+                drivers o controladores.
+              </li>
+            </ul>
+          </p>
+
+          <p>
+            Cuando el sistema operativo no carga, los problemas pueden deberse a dos causas principales: a un conflicto de configuración del hardware o a la infección del sistema por parte de un virus.
+          </p>
+          <p>
+            Los inconvenientes en la configuración del hardware pueden darse tanto en el mismo componente, por mala posición del jumper, como en la declaración del Setup. Ambos casos se detallarán al extremo en los apartados posteriores.
+          </p>
+          <p>
+            Por otro lado, una vez iniciada la carga del sistema operativo, contaremos con algunas herramientas nativas que podremos utilizar para restaurar y corregir errores del sistema operativo. Asimismo, podemos encontramos con escenarios en los cuales la computadora haya sido afectada por virus que corrompieron archivos de arranque del sistema operativo estos casos deberemos aplicar las vacunas correspondientes. Finalmente, veremos los pasos por realizar para arreglar el sistema operativo, si esto fuese necesario.
+          </p>
+          <p>
+            La PC se congela: Si detallamos los problemas que encontramos cuando el equipo está funcionando, seguramente el más habitual será que la PC se cuelga o se congela. Esto puede deberse, principalmente, a dos causas: un conflicto en el sistema operativo o problemas de hardware (disco duro, fuente, alta temperatura en el gabinete, etc.). Para solucionar estos inconvenientes, podremos recurrir a las herramientas del sistema, como iniciarlo en modo a prueba de fallos, restaurarlo mediante las herramientas de asistencia del sistema operativo y, en el último de los casos, formatear nuevamente el disco duro y reinstalar Windows. Todas estas situaciones se analizarán a lo largo de esta materia.
+
+            La PC anda lentamente: La lentitud en el sistema es una consulta recurrente por parte de los usuarios de computadoras en general. Por un lado, la velocidad con la que avanza la tecnología deja obsoletos los componentes y, por el otro, el software y sus aplicaciones necesitan cada vez más recursos para su ejecución. Éste es uno de los motivos por los cuales la PC puede funcionar lentamente. Sin embargo, suele suceder que, por fallas en algunos dispositivos o carencia de recursos, la computadora no responda de forma correcta. Además, la lentitud podría ser consecuencia de la incompatibilidad entre los programas instalados y el sistema operativo, o por aplicaciones
+            “malignas” (malware), entre otras causas.
+            
+            Problemas con dispositivos: En este aspecto, los elementos con inconvenientes pueden ser muchos, desde el micrófono y los altavoces,hasta la unidad de CD, la disquetera, el monitor, etc.
+            En el caso del monitor, la falla puede darse por la influencia de campos magnéticos que modifican los colores, mientras que la suciedad puede arruinar las unidades de CD/DVD, disqueteras, teclados y mouses. Otras causas pueden ser problemas con los drivers, códecs y configuración, entre una amplia gema que analizaremos mas adelante.
+            
+            Acceso a redes y a Internet: En general, las computadoras poseen una conexión a Internet (o a una red), ya sea para trabajar o, simplemente, para divertirse. Como bien sabemos, para navegar en Internet necesitamos una empresa que nos provea de una conexión (ISP),un módem, que puede ser interno o externo, y un navegador o browser. En todos estos componentes pueden estar la fuente de los problemas que nos impiden conectarnos a internet.
+            Además de los elementos físicos comprometidos en la conexión (módem, placa de red), debemos agregar el sistema operativo y muchas de las aplicaciones instaladas en la computadora. Como podemos observar, son numerosos los elementos que intervienen en esta tarea, y en cada uno de ellos puede producirse una falla que nos impida conectamos adecuadamente a la Red.
+            
+            Fallas en aplicaciones: Las fallas en las aplicaciones corresponden siempre al nivel del software y, generalmente, tienen que ver con errores ocasionados durante la instalación de la aplicación o modificaciones producidas en el Registro de Windows. Toda aplicación estará comprometida con el sistema y, como tal, deberá guardar cierta compatibilidad con él. Además, cada vez que instalemos un programa de cualquier índole, deberemos asegurarnos de que la PC posea los requerimientos mínimos para ejecutarlo. Luego veremos cómo optimizar la configuración de cada.
+            equipo y restaurar la instalación de un programa.
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <h4>Conclusion</h4>
+        <p class="col-12" >
+          
+        </p>
+      </div>
+
+
+      <div class="row">
+        <h4>Referencias</h4>
+        <p class="col-12" >
+          https://1984.lsi.us.es/wiki-ssoo/index.php/Arranque_del_sistema
+
+          https://blogs.itpro.es/octaviordz/2013/08/15/diagnostico-y-conjunto-de-herramientas-de-recuperacion-dart-como-parte-de-mdop/
+
+          https://sistemaopertivo.wordpress.com/fallas-del-sistema-operativo/
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/marco-gallegos">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Marco Gallegos 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
