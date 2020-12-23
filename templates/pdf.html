@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Evidencias</title>
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+  <!-- Bootstrap core CSS -->
+  <!--link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"-->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <!--link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'-->
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='vendor/css/clean-blog.css') }}" rel="stylesheet">
+
+  <style>
+    .abc {
+      background-image: url("{{ url_for('static', filename='img/post-bg.jpg') }}")
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Marco Gallegos Notebook</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="abc masthead" >
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>12 (5 5.1 5.2) Introducción a los sistemas operativos en red con Linux server</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">Posted by
+              <a href="#">Marco Gallegos</a>
+              el 05 de Diciembre del 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <h2>Servidor Linux</h2>
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            Un servidor Linux es un servidor impulsado por el sistema operativo de código abierto de Linux. Ofrece a las empresas una opción de bajo costo para entregar contenido, aplicaciones y servicios a sus clientes. Debido a que Linux es de código abierto, los usuarios también reciben beneficios de una sólida comunidad de recursos y abogados.
+          </p>
+          <p>
+            Cada variedad de servidor Linux está diseñada teniendo en cuenta distintos usos:
+            <ul>
+              <li>
+                Si tiene en ejecución un servidor web, lo más probable es que sea en CentOS
+              </li>
+              <li>
+                Si su aplicación atiende a miles de usuarios, o incluso más, la solución que buscará será una que esté diseñada para manejar ese tipo de volúmenes, como Red Hat® Enterprise o Ubuntu® Server.
+              </li>
+              <li>
+                Eso sería una exageración para sus necesidades empresariales, ya que con un servidor TurnKey Linux de propósito específico sería suficiente.
+              </li>
+            </ul>
+          </p>
+          <p>
+            La infraestructura en la nube suele estar basada en Linux.
+          </p>
+          <p>
+            De acuerdo con la empresa de investigación IDC, muchas empresas están reduciendo la cantidad de servidores que administran mediante la consolidación de centros de datos y con el traslado al software como servicio (SaaS) si es posible, con lo cual se transfiere la responsabilidad del servidor a los proveedores de servicios en la nube.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>Windows vs Linux</h2>
+          <p>
+            Quizá no puedas decidirte si necesitas un Servidor Linux o un Servidor Windows, esta es una de las decisiones más complejas que puedes llegar a manejar al momento de decidir tu plataforma.
+          </p>
+          <p>
+            Aunque en realidad es una pregunta sencilla que se suele determinar por dos factores: los lenguajes que vayan a utilizar tus sitios, pues dependiendo de la tecnología que uses en ellos, decidirás el futuro sistema operativo de tu servidor, y el dinero con que cuentas para destinar a la plataforma de alojamiento web que elijas.
+          </p>
+          <p>
+            la elección depende enteramente de lo que quieras instalar y usar dentro del server, pues ambas plataformas ofrecen diferente rendimiento, seguridad y estabilidad para las aplicaciones, dependiendo del entorno en que corran. Veamos ahora cada una de las características
+          </p>
+
+          <p>
+            Los servidores Linux son ideales para correr con tecnologías tales como C, Perl, MySQL o PHP con servidores web Nginx o Apache, las cuales están optimizadas para este entorno, ya que fueron lenguajes creados específicamente bajo estas plataformas basadas en Linux y Unix, donde corren nativamente y desde donde se les puede sacar la máxima performance al ejectuarlos.
+          </p>
+
+          <p>
+            Por otro lado, los servidores Windows están orientados para utilizar ASP, ASP.NET, bases de datos Access y MSSQL por ejemplo. Aunque es bien sabido que también pueden ejecutar aplicaciones hechas en variedad de otros lenguajes como C, C++, Python, y otros lenguajes multiplataforma como PHP.
+          </p>
+
+          <p>
+            Habiendo visto esto, veamos ahora qué servidores son mejores a nivel general, repasando cada una de las características que consideramos más importantes en ambas plataformas.
+          </p>
+
+          <h3>Uso</h3>
+          <p>
+            Los servidores dedicados Linux no poseen una interfaz gráfica, por lo que pueden resultar más difíciles de manejar que un servidor Windows. Aún así, un usuario experto en servidores dedicados Linux no tendrá problemas para realizar toda clase de tareas complejas.
+
+          </p>
+          <p>
+            Los servidores dedicados Windows es de por sí mucho más fácil de gestionar que un Linux, sobre todo si somos principiantes en el tema, gracias a sus interfaces visuales.
+          </p>
+
+          <h3>Funcionalidad</h3>
+          <p>
+            Esto nos devuelve al tema del principio, uno puede ser mucho más útil que el otro dependiendo de las tecnologías que vayamos a usar, quizás para ti como desarrollador Windows un servidor Linux sea inútil, y vice-versa, es un tema totalmente dependiente de la tecnología que correrás dentro.
+          </p>
+
+          <h3>Confiabilidad</h3>
+          <p>
+            En este aspecto veremos que los dos son sumamente parecidos, ya que existen hace muchos años y son actualizados con frecuencia. Linux está respaldado por cientos de miles (sino millones) de desarrolladores alrededor de todo el mundo, que aportan sus conocimientos a proyectos opensource, aunque también hay grandes corporaciones fundadas en base al opensource y Linux, como RedHat Inc, creadores de las plataformas de sistema CentOS, RHEL y Fedora
+          </p>
+          <p>
+            Por el otro lado, Microsoft es una empresa de renombre mundial que viene desarrollando el sistema operativo Windows desde que tenemos uso de razón, por lo cual también cuenta con un gran respaldo.
+          </p>
+
+          <h3>Precios</h3>
+          <p>
+            Los servidores Linux son más baratos, ya que utilizan un sistema operativo en general gratuito (no se debe pagar licencia como en Windows) y además cuentan con una gran comunidad open-source donde podemos obtener muchísimas aplicaciones totalmente gratuitas.
+          </p>
+          <p>
+            En Windows Server necesitamos adquirir licencias aparte para ciertos productos bastante indispensables en algunos casos, tales como MSSQL Server por ejemplo.
+          </p>
+
+          <h3>Rendimiento</h3>
+          <p>
+            Con niveles bajos de carga, ambos tipos de servidores suelen tener un rendimiento similar, aunque aquí influyen más factores, tales como la cantidad de recursos disponibles para cada server (CPU, RAM y tipo de Discos que se usen más que nada). Aunque en plataformas de alto tráfico según nuestra experiencia los servidores Linux tienen un mucho mejor rendimiento que los que corren Windows Server 2008, 2012 o 2016..
+          </p>
+
+          <h3>Seguridad</h3>
+          <p>
+            Ambos tipos de servidores pueden llegar a ser igual de seguros. Es posible lograr un nivel de seguridad considerablemente alto en los dos casos, aunque hay muchísimos más casos de agujeros de seguridad y explotaciones a servicios en servidores windows que en los que corren Linux.
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <h4>Conclusion</h4>
+        <p class="col-12" >
+          Cuando hablamos de servidores es muy probable que lo primero que venga a nuestra mente sean servidores linux especialmente en el ambito de los servidores web a pesar de que en la materia nos centramos en servidores windows los servidores linus son los que dominan el sector, en este documento nos dimos una vuelta sobre los detalles por los cuales linux agrega ventajas sobre windows a la hora de hablar de servidores de consumo general.
+        </p>
+      </div>
+
+
+      <div class="row">
+        <h4>Referencias</h4>
+        <p class="col-12">
+          Borges, S. (2020, 16 julio). Servidores Linux vs Servidores Windows. Infranetworking. https://blog.infranetworking.com/linux-vs-windows-servidores/
+        </p>
+        <p class="col-12" >
+          Biblioteca: ¿Qué es un servidor Linux? (s. f.). Rackspace Technology. Recuperado 10 de diciembre de 2020, de https://www.rackspace.com/es-mx/library/what-is-a-linux-server
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/marco-gallegos">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Marco Gallegos 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
+
+</body>
+
+</html>

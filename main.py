@@ -13,12 +13,12 @@ options = {
 
 html = template.render(data)
 
-f = open("extra.html", 'w')
+f = open("extra.ignore.html", 'w')
 f.write(html)
 f.close()
 
 #pdfkit.from_url('https://es.wikipedia.org/wiki/Python', 'out.pdf')
 #pdfkit.from_file("/mnt/HomeStorage/Bellatrix/Documentos/CUCEI12/SOR/ssor/extra.html", "out.pdf")
-pdfkit.from_file("./extra.html", "out.pdf", options=options)
+pdfkit.from_file("./extra.ignore.html", "out.ignore.pdf", options=options)
 
 #pdfkit.from_string(html, "out.pdf", options=options)
