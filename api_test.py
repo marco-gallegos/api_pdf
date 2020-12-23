@@ -1,7 +1,8 @@
-from flask import Flask, Response, jsonify, render_template
+from flask import Flask, Response, jsonify, render_template, send_file
 import pdfkit
 import os
-# adnf install wkhtmltopdf
+# pip install pdfkit flask pendulum
+# dnf install wkhtmltopdf
 
 
 app = Flask(__name__)
@@ -26,7 +27,7 @@ def index():
     #pdfkit.from_string(html, f"{filename}.pdf", options=options)
     pdfkit.from_file(f"{filename}.html", f"{filename}.pdf", options=options)
 
-    return html
+    return send_file(f"{filename}.pdf", as_attachment=True)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
