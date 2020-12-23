@@ -1,4 +1,8 @@
 from flask import Flask, Response, jsonify, render_template
+import pdfkit
+import os
+# adnf install wkhtmltopdf
+
 
 app = Flask(__name__)
 
@@ -7,7 +11,21 @@ app = Flask(__name__)
 def index():
     data = {}
     html = render_template('pdf.html', data=data)
-    
+
+    filename="pdf_new.ignore"
+
+    f = open(f"{filename}.html","w")
+    f.write(html)
+    f.close()
+
+    options = {
+        "enable-local-file-access": "",
+        #"allo": "",
+    }
+
+    #pdfkit.from_string(html, f"{filename}.pdf", options=options)
+    pdfkit.from_file(f"{filename}.html", f"{filename}.pdf", options=options)
+
     return html
 
 if __name__ == "__main__":
